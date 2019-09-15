@@ -1,20 +1,11 @@
 
 
-var nombre = 'Angel'
-var apellido= 'Santillan'
-
-var nombreUpercase = nombre.toUpperCase()
-var apellidoMinusculas = apellido.toLowerCase()
-
-var primerletra = nombre.charAt(0)
-var cantidadLetras = nombre.length
+var nombre = 'Sacha' ; edad = 28
 
 
-var completo = nombre + ' ' +apellido
+function imprimirEdad(n , e ) {
+    console.log(`${n} tiene ${e} años`  )
 
-var completo2 = `${nombre} ${apellido.toLocaleUpperCase()} `
+}
 
-
-var str = nombre.substr(1,2)
-
-console.log(nombreUpercase + apellidoMinusculas)
+imprimirEdad(nombre, edad)
