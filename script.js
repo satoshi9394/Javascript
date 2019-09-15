@@ -30,3 +30,14 @@ function imprimir_nombre_edad (persona) {
 
 imprimir_nombre_edad(sacha)
 imprimir_nombre_edad(dario)
+
+
+function cumpleaños(persona) {
+    return {
+        ...persona,
+        edad: persona.edad + 1
+    }
+    
+}
+
+
