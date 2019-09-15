@@ -1,18 +1,20 @@
-console.log('Hola mundo JS')
 
 
-var nombre
+var nombre = 'Angel'
+var apellido= 'Santillan'
 
-nombre = 'Sacha'
-var nombre2 = 'pedro'
+var nombreUpercase = nombre.toUpperCase()
+var apellidoMinusculas = apellido.toLowerCase()
 
-var apellido = 'santos'
+var primerletra = nombre.charAt(0)
+var cantidadLetras = nombre.length
 
-var nombre3 = 'angel' ; var apellido2= 'santillan'
 
-var edad = 28 
+var completo = nombre + ' ' +apellido
 
-console.log('hola ' + nombre + 'hola' + nombre2)
-console.log(nombre2 + ' ' + apellido )
-console.log(nombre3 + ' ' + apellido2)
-console.log( 'tengo '+ edad + ' ' + 'años')
+var completo2 = `${nombre} ${apellido.toLocaleUpperCase()} `
+
+
+var str = nombre.substr(1,2)
+
+console.log(nombreUpercase + apellidoMinusculas)
