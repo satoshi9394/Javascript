@@ -2,13 +2,19 @@
 var sacha = {
     nombre: 'Sacha',
     apellido: 'Lopez',
-    edad: 10,
+    edad: 28,
     ingeniero : false,
     cocinero: false,
     cantante: true,
     dj: false,
     guitarrista: false,
     drone: false,
+}
+
+var juan = {
+    nombre: 'Juan',
+    apellido: 'Guisardo',
+    edad: 10,
 }
 
 
@@ -51,9 +57,15 @@ function imprimirProfesiones(persona) {
 
 imprimirProfesiones(sacha)
 
+const MAYORIA_DE_EDAD = 18
+
+
+function esMayorDeEdad(persona){
+    return persona.edad >= MAYORIA_DE_EDAD
+}
 
 function ImprimirSiEsMayorDeEdad(persona){
-    if(persona.edad >= 18){
+    if(esMayorDeEdad(persona)){
         console.log(`${persona.nombre} es mayor de edad por que tiene ${persona.edad} años`)
     }else{
         console.log(`${persona.nombre} es menor de edad por que tiene ${persona.edad} años`)
