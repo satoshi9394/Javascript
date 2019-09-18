@@ -63,6 +63,8 @@ const MAYORIA_DE_EDAD = 18
 
 const esMayorDeEdad = ({ edad }) => edad >= MAYORIA_DE_EDAD
 
+const esMenorDeEdad = persona => !esMayorDeEdad(persona)
+
 function ImprimirSiEsMayorDeEdad(persona){
     if(esMayorDeEdad(persona)){
         console.log(`${persona.nombre} es mayor de edad por que tiene ${persona.edad} años`)
@@ -80,3 +82,4 @@ function permitirAceso(persona){
         console.log('ACCESO DENEGADO')
     }
 }
+
