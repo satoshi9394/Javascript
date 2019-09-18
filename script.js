@@ -60,9 +60,8 @@ imprimirProfesiones(sacha)
 const MAYORIA_DE_EDAD = 18
 
 
-function esMayorDeEdad(persona){
-    return persona.edad >= MAYORIA_DE_EDAD
-}
+
+const esMayorDeEdad = ({ edad }) => edad >= MAYORIA_DE_EDAD
 
 function ImprimirSiEsMayorDeEdad(persona){
     if(esMayorDeEdad(persona)){
@@ -74,3 +73,10 @@ function ImprimirSiEsMayorDeEdad(persona){
 
 
 ImprimirSiEsMayorDeEdad(sacha)
+
+
+function permitirAceso(persona){
+    if (!esMayorDeEdad(persona)){
+        console.log('ACCESO DENEGADO')
+    }
+}
