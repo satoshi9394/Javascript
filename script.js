@@ -12,4 +12,6 @@ switch(signo){
     case 'leo':
         console.log("Escogiste el Tercero signo")
         break
+    default:
+        console.log("aun no agregas ese signo o no es uno de ellos")
 }   
