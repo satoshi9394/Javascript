@@ -1,3 +1,9 @@
+function heredaDE(prototipoHijo , prototipoPadre){
+    var fn = function() {}
+    fn.prototype = prototipoPadre.prototype
+    prototipoHijo.prototype = new fn
+    prototipoHijo.prototype.constructor = prototipoHijo
+}
 
 
 function Persona(nombre, apellido, altura) {
@@ -6,20 +12,30 @@ function Persona(nombre, apellido, altura) {
     this.altura = altura
 }
 
-Persona.prototype.saludar = () => {
+Persona.prototype.saludar = function() {
     console.log(`Hola me llamo ${this.nombre} ${this.apellido} `)
 }
-Persona.prototype.soyAlto = () => this.altura > 1.8
+Persona.prototype.soyAlto = function() {
+    return this.altura > 1.8
+}
+
+function Desarrollador(nombre, apellido) {
+    this.nombre = nombre
+    this.apellido = apellido
+}
+heredaDE(Desarrollador, Persona)
+
+Desarrollador.prototype.saludar = function () {
+    console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy desarrolldor/a `)
+}
 
 
 
-var sasha = new Persona('Sacha', 'Lopez',1.75)
+/* var sasha = new Persona('Sacha', 'Lopez',1.75)
 var arturo = new Persona('Arturo', 'Santillan', 1.89)
-var angel = new Persona('Angel', 'Gonzales', 1.79)
+var angel = new Persona('Angel', 'Gonzales', 1.79) */
 
 
-sasha.soyAlto()
-arturo.soyAlto()
-angel.soyAlto()
+
 
 
