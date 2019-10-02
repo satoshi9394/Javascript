@@ -2,11 +2,21 @@
 const API_URL = 'https://swapi.co/api/'
 const PEOPLE_URL = 'people/:id'
 
-const lukeUrl = `${API_URL}${PEOPLE_URL.replace(':id', 1)}` 
-const opts =  { crossDomain: false }
+/* const lukeUrl = `${API_URL}${PEOPLE_URL.replace(':id', 1)}`   cuando solo querias traer uno xd*/
+const opts =  { crossDomain: true }
 
-const onRespose = function(luke) {
-    console.log(`hola yo soy ${luke.name}`)
+const onRespose = function(persona) {
+    console.log(`Hola, yo soy ${persona.name}`)
 }
 
-$.get(lukeUrl , opts , onRespose )
+
+function obtenerPersonaje(id) {
+    const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
+    $.get(url , opts , onRespose )
+}
+
+obtenerPersonaje(1)
+obtenerPersonaje(2)
+obtenerPersonaje(3)
+
+
