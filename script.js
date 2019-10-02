@@ -8,34 +8,34 @@ const opts =  { crossDomain: true }
 
 
 
-function obtenerPersonaje(id, callback) {
-    const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
+function obtenerPersonaje(id) {
+    return new Promise( function (resolve , reject) {
+        const url = `${API_URL}${PEOPLE_URL.replace(':id', id) }`
 
-    $.get(url , opts , callback).fail(function() {
-        console.log(`Sucedio un error interno en el servidor.
-        No se pudo obtener la respuesta id:${id} `)
+        $.get(url , opts , function(data) {
+            resolve(data)
+        })
+        .fail( () => reject(id) )
     })
 }
 
-obtenerPersonaje(1, function (personaje)  {
-    console.log(`Hola, yo soy ${personaje.name}`)
+function onError(id) {
+    console.log(`El personaje con Id:${id} no se pudo obtener `)
+}
 
-    obtenerPersonaje(2,function(personaje) {
-        console.log(`Hola, yo soy ${personaje.name}`)
 
-        obtenerPersonaje(3, function(personaje) {
-            console.log(`Hola, yo soy ${personaje.name}`)
-
-            obtenerPersonaje(4, function(personaje) {
-                console.log(`Hola, yo soy ${personaje.name}`)
-
-                obtenerPersonaje(5, function(personaje) {
-                    console.log(`Hola, yo soy ${personaje.name}`)
-                })
-            })
-        })
+obtenerPersonaje(1)
+    .then(function(personaje) {
+        console.log(`El personaje 1 es: ${ personaje.name }`)
     })
-})
+    .catch( function(id) {
+        onError(id)
+    })
+
+
+
+
+
 
 
 
